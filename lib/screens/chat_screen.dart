@@ -43,6 +43,7 @@ class _ChatScreenState extends State<ChatScreen> {
               fontWeight: FontWeight.w600,
             ),
           ),
+          SizedBox(height: 8.0),
           Text(
             message.text,
             style: TextStyle(
@@ -95,7 +96,7 @@ class _ChatScreenState extends State<ChatScreen> {
               textCapitalization: TextCapitalization.sentences,
               onChanged: (value) {},
               decoration: InputDecoration.collapsed(
-              hintText: 'Send a message...',
+                hintText: 'Send a message...',
               ),
             ),
           ),
@@ -122,6 +123,7 @@ class _ChatScreenState extends State<ChatScreen> {
             fontWeight: FontWeight.bold,
           ),
         ),
+        elevation: 0.0,
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.more_horiz),
@@ -148,13 +150,14 @@ class _ChatScreenState extends State<ChatScreen> {
                     topRight: Radius.circular(30.0),
                   ),
                   child: ListView.builder(
-                      reverse: true,
-                      itemCount: messages.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        final Message message = messages[index];
-                        bool isMe = message.sender.id == currentUser.id;
-                        return _buildMessage(message, isMe);
-                      }),
+                    reverse: true,
+                    itemCount: messages.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      final Message message = messages[index];
+                      final bool isMe = message.sender.id == currentUser.id;
+                      return _buildMessage(message, isMe);
+                    },
+                  ),
                 ),
               ),
             ),
