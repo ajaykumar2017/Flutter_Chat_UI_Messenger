@@ -55,9 +55,11 @@ class _ChatScreenState extends State<ChatScreen> {
       ),
     );
 
+    //check if it's Me
     if (isMe) {
       return msg;
     }
+    //Otherwise add favourite border icon and return
     return Row(
       children: <Widget>[
         msg,
